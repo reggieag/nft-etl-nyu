@@ -26,7 +26,7 @@ if __name__ == "__main__":
         "address": Web3.toChecksumAddress(RARI_CONTRACT),
     }
 
-    w3.write_trx_to_csv(
+    w3.write_entries_to_csv(
         filename=OUT_FILENAME,
         filter=rari_filter,
         parse_entry_fn=parse_rari_entry,

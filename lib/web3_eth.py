@@ -40,7 +40,7 @@ class W3Eth:
     def get_contract_first_block(self, contract):
         return self.w3.eth.getTransactionReceipt(contract)['blockNumber']
 
-    def write_trx_to_csv(self, filename, filter, parse_entry_fn, start_block=None, end_block=None):
+    def write_entries_to_csv(self, filename, filter, parse_entry_fn, start_block=None, end_block=None):
         with open(filename, 'w') as out_file:
             csv_writer = csv.writer(out_file, delimiter=',', quotechar='|')
             for entries_batch in self.get_entries_batch(filter, start_block, end_block):
