@@ -26,7 +26,7 @@ class W3Eth:
         cur_block = starting_block or 0
         ending_block = ending_block or self.w3.eth.blockNumber
         block_step = block_step or DEFAULT_BLOCK_STEP
-        print(cur_block, ending_block)
+
         while cur_block <= ending_block:
             filter_params.update(
                 {"fromBlock": cur_block, "toBlock": cur_block + block_step}
@@ -44,6 +44,8 @@ class W3Eth:
         with open(filename, 'w') as out_file:
             csv_writer = csv.writer(out_file, delimiter=',', quotechar='|')
             for entries_batch in self.get_entries_batch(filter, start_block, end_block):
+                # transactionIndex is the position of a transaction within a block.
+                entries_batch.sort(key=lambda x: (x['blockNumber'], x['transactionIndex']))
                 for entry in entries_batch:
                     csv_writer.writerow(parse_entry_fn(entry))
 
