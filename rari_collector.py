@@ -2,7 +2,7 @@ from web3 import Web3
 
 from lib.web3_eth import W3Eth, parse_address
 
-ETH_ENDPOINT = "wss://mainnet.infura.io/ws/v3/f9667be3f31d4159b9310bdd152bc0a0"
+ETH_ENDPOINT = "wss://mainnet.infura.io/ws/v3/YOURTOKENGOESHERE"
 RARI_CONTRACT = "0x60f80121c31a0d46b5279700f9df786054aa5ee5"
 START_BLOCK = 10149090
 BLOCK_STEP = 4000
