@@ -35,7 +35,7 @@ class W3Eth:
                 filter_params
             )
             yield filtered_w3_eth_node.get_all_entries()
-            cur_block += block_step
+            cur_block += block_step + 1
 
     def get_contract_first_block(self, contract):
         return self.w3.eth.getTransactionReceipt(contract)['blockNumber']
