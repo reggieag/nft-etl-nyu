@@ -22,5 +22,9 @@ You can now run commands using `poetry run` and you will have access to the pack
 poetry run python
 ```
 
-## On-chain data
+## Pulling Down Ethereum Data
+To pull down Rari ethereum data
+```bash
+poetry run python rari_collector.py
+```
 

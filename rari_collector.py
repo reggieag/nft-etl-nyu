@@ -6,6 +6,7 @@ ETH_ENDPOINT = "wss://mainnet.infura.io/ws/v3/f9667be3f31d4159b9310bdd152bc0a0"
 RARI_CONTRACT = "0x60f80121c31a0d46b5279700f9df786054aa5ee5"
 START_BLOCK = 10149090
 BLOCK_STEP = 4000
+OUT_FILENAME = 'rari_transactions.csv'
 
 
 def parse_rari_entry(entry):
@@ -26,7 +27,7 @@ if __name__ == "__main__":
     }
 
     w3.write_trx_to_csv(
-        filename='rari_transactions.csv',
+        filename=OUT_FILENAME,
         filter=rari_filter,
         parse_entry_fn=parse_rari_entry,
         start_block=START_BLOCK,
