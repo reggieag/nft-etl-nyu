@@ -38,7 +38,9 @@ class W3Eth:
             cur_block += block_step + 1
 
     def get_contract_first_block(self, contract):
-        return self.w3.eth.getTransactionReceipt(contract)['blockNumber']
+        # TODO: This doesn't actually work yet
+        # return self.w3.eth.getTransactionReceipt(contract)['blockNumber']
+        pass
 
     def write_entries_to_csv(self, filename, filter, parse_entry_fn, start_block=None, end_block=None):
         with open(filename, 'w') as out_file:
