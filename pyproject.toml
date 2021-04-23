@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "nft-etl-nyu"
+version = "0.1.0"
+description = ""
+authors = ["Reggie Gomez <reggieag@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+web3 = "^5.18.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

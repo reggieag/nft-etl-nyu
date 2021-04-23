@@ -1,8 +1,30 @@
 # nft-etl-nyu
 
 ## Setup
-Install python packages in requirements.txt
+We use poetry to manage dependencies and virtual environments.
 
+Install poetry based on their documentation.
+https://python-poetry.org/docs/
+
+On Unix you can execute this command:
 ```bash
-pip3 install -r requirements.txt
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+source $HOME/.poetry/env
 ```
+
+Then install the python packages.
+```bash
+poetry install --no-root
+```
+
+You can now run commands using `poetry run` and you will have access to the packages defined in the `pyproject.toml` file.
+```bash
+poetry run python
+```
+
+## Pulling Down Ethereum Data
+To pull down Rari ethereum data
+```bash
+poetry run python rari_collector.py
+```
+
