@@ -1,0 +1,23 @@
+We use the Neo4j to achieve the data visualization. Below are the codes to import the data and create the relationship in Neo4j graph database.
+
+1. // Delete all existing node and relationship
+MATCH (n)
+DETACH DELETE n
+
+
+2. // Create all nodes
+LOAD CSV WITH HEADERS FROM 'file:///all_node.csv' AS row
+WITH row
+create (a:`NODE` {`ADDRESS`:row.ADDRESS});
+
+
+3. // Create relationships
+LOAD CSV WITH HEADERS FROM 'file:///transfers.csv' AS row
+MATCH (p1:NODE {ADDRESS:row.FROM}), (p2:NODE {ADDRESS:row.TO})
+CREATE (p1)-[:TRANSFER]->(p2);
+
+
+4. // Display all existing nodes and relationships
+Match (n)-[r]->(m)
+Return n,r,m
+
