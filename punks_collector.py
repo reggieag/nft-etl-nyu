@@ -6,13 +6,9 @@ from lib.web3_eth import W3Eth, parse_address
 
 ETH_ENDPOINT = f"wss://mainnet.infura.io/ws/v3/{os.getenv('INFURIA_KEY')}"
 PUNKS_CONTRACT = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
-# START_BLOCK = 5774644
-START_BLOCK = 12346021
-END_BLOCK = 12346021
+START_BLOCK = 3914495  # https://etherscan.io/tx/0x0885b9e5184f497595e1ae2652d63dbdb2785de2e498af837d672f5765f28430
 BLOCK_STEP = 4000
 OUT_FILENAME = 'punks_transactions.csv'
-
-# https://etherscan.io/tx/0xa7cc3f59c5d3a7a022a1375e607b49059f1b242422dc9986f524012ed744bc2c
 
 
 def parse_punks_entry(entry):
@@ -27,7 +23,6 @@ def parse_punks_entry(entry):
 
 if __name__ == "__main__":
     w3 = W3Eth(ETH_ENDPOINT)
-    # 0x58e5d5a525e3b40bc15abaa38b5882678db1ee68befd2f60bafe3a7fd06db9e3
     rari_filter = {
         "topics": [Web3.keccak(text="PunkBought(uint256,uint256,address,address)").hex()],
         "address": Web3.toChecksumAddress(PUNKS_CONTRACT),
@@ -37,5 +32,5 @@ if __name__ == "__main__":
         filter=rari_filter,
         parse_entry_fn=parse_punks_entry,
         start_block=START_BLOCK,
-        end_block=END_BLOCK,
+        headers=['block_number', 'transaction_index', 'from_address', 'to_address',  'punk_id', 'price_eth']
     )

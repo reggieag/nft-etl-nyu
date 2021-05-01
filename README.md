@@ -28,3 +28,9 @@ To pull down Rari ethereum data
 poetry run python rari_collector.py
 ```
 
+# Datasets
+
+## Punks Dataset
+We look at the CryptoPunks dataset, focusing in on buy transactions. CryptoPunks is one of the most successful NFT projects and was created by larvalabs. CryptoPunks will be auctioned at Christie's for millions of dollars.
+
+In our dataset we focus on by events. Inside the buy events are the buyer address, the seller address, and the total price in ethereum. We also include the block number and transaction id in this dataset. The block id and transaction id can be used to sort events by time.
